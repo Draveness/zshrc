@@ -59,6 +59,8 @@ alias gpt='git push --tags'
 alias gs='git status'
 alias gf='git fetch'
 alias gm='git merge'
+alias gcid="git log | head -1 | awk '{print substr(\$2,1,7)}' | pbcopy"
+alias gc="git clone"
 alias pi='pod install'
 alias pu='pod update'
 alias dc="cd /Users/apple/Desktop"
@@ -77,7 +79,6 @@ alias p4="proxychains4 "
 alias backup="$BLOG/backup.sh "
 alias rails5="~/rails/railties/exe/rails"
 alias pin="pod install --no-repo-update"
-alias gcid="git log | head -1 | awk '{print substr(\$2,1,7)}' | pbcopy"
 
 # the fuck
 eval $(thefuck --alias)
