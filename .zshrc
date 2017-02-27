@@ -1,71 +1,34 @@
-# Path to your oh-my-zsh installation.
+ZSH_THEME="blinks"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+
+export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152
+export THEOS=~/theos
 export ZSH=$HOME/.oh-my-zsh
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 export EDITOR=vim
 export BLOG=~/DeltaX
-export PROMPT="$PROMPT$(git-radar --zsh --fetch) "
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="avit"
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to disable command auto-correction.
-# DISABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-plugins=(autojump)
-source $ZSH/oh-my-zsh.sh
-
-# Autojump
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
-# User configuration
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Configure PATH
-export PATH="/usr/local/ssl/bin:$PATH"
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$PATH:/usr/local/ssl/bin"
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin"
 export PATH="$PATH:/bin"
 export PATH="$PATH:/usr/sbinn"
 export PATH="$PATH:/sbin"
-export PATH="$PATH:/usr/local/smlnj/bin"
 export PATH="$PATH:."
 export PATH="$PATH:./node_modules/.bin"
 
 # Alias
+alias rp="postgres -D /usr/local/var/postgres"
+alias a="open -a Atom ."
+alias atom="open -a Atom "
+alias rehash="source ~/.zshrc"
 alias purgeallbuilds='rm -rf ~/Library/Developer/Xcode/DerivedData/*' 
 copyToBoard() {
     cat $1 | pbcopy
@@ -97,6 +60,8 @@ alias gpt='git push --tags'
 alias gs='git status'
 alias gf='git fetch'
 alias gm='git merge'
+alias pi='pod install'
+alias pu='pod update'
 alias dc="cd /Users/apple/Desktop"
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -147,10 +112,12 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
-# pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
 # added by travis gem
 [ -f /Users/apple/.travis/travis.sh ] && source /Users/apple/.travis/travis.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+eval $(/usr/libexec/path_helper -s)
