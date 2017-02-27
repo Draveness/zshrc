@@ -2,13 +2,10 @@ ZSH_THEME="blinks"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
-export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152
-export THEOS=~/theos
 export ZSH=$HOME/.oh-my-zsh
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 export EDITOR=vim
-export BLOG=~/DeltaX
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -27,6 +24,7 @@ export PATH="$PATH:./node_modules/.bin"
 # Alias
 alias rp="postgres -D /usr/local/var/postgres"
 alias a="open -a Atom ."
+alias o="open "
 alias atom="open -a Atom "
 alias rehash="source ~/.zshrc"
 alias purgeallbuilds='rm -rf ~/Library/Developer/Xcode/DerivedData/*' 
@@ -34,6 +32,7 @@ copyToBoard() {
     cat $1 | pbcopy
 }
 alias pp=copyToBoard
+
 alias ga='git add .'
 alias gd='git diff'
 alias gam='git add -A && git commit'
@@ -78,11 +77,10 @@ alias p4="proxychains4 "
 alias backup="$BLOG/backup.sh "
 alias rails5="~/rails/railties/exe/rails"
 alias pin="pod install --no-repo-update"
-alias julia='/Applications/Julia-0.4.5.app/Contents/Resources/julia/bin/julia'
 alias gcid="git log | head -1 | awk '{print substr(\$2,1,7)}' | pbcopy"
-alias git 
-eval $(thefuck --alias)
 
+# the fuck
+eval $(thefuck --alias)
 
 # SSH
 SSH_ENV=$HOME/.ssh/environment
@@ -113,7 +111,7 @@ source /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # added by travis gem
-[ -f /Users/apple/.travis/travis.sh ] && source /Users/apple/.travis/travis.sh
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
