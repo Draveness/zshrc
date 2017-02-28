@@ -109,6 +109,8 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # Autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
 eval $(/usr/libexec/path_helper -s)
+
+# rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
