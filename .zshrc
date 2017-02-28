@@ -16,14 +16,16 @@ export PATH="$PATH:/usr/sbinn"
 export PATH="$PATH:/sbin"
 export PATH="$PATH:."
 export PATH="$PATH:./node_modules/.bin"
+export PATH="$HOME/.rvm/bin:$PATH"
 
 # Alias
 alias vz='vim ~/.zshrc'
 alias rp="postgres -D /usr/local/var/postgres"
 alias a="open -a Atom ."
 alias o="open "
-alias atom="open -a Atom "
-alias rehash="source ~/.zshrc"
+alias oc="open ."
+alias atm="open -a Atom "
+alias rh="source ~/.zshrc"
 alias purgeallbuilds='rm -rf ~/Library/Developer/Xcode/DerivedData/*' 
 copyToBoard() {
     cat $1 | pbcopy
@@ -66,7 +68,7 @@ podInstallInExampleFolder() {
 }
 alias pie=podInstallInExampleFolder
 
-alias dc="cd /Users/apple/Desktop"
+alias dc="cd ~/Desktop"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....=' cd ../../..'
