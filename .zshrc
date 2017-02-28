@@ -18,6 +18,7 @@ export PATH="$PATH:."
 export PATH="$PATH:./node_modules/.bin"
 
 # Alias
+alias vz='vim ~/.zshrc'
 alias rp="postgres -D /usr/local/var/postgres"
 alias a="open -a Atom ."
 alias o="open "
@@ -57,8 +58,14 @@ alias gf='git fetch'
 alias gm='git merge'
 alias gcid="git log | head -1 | awk '{print substr(\$2,1,7)}' | pbcopy"
 alias gc="git clone"
+
 alias pi='pod install'
 alias pu='pod update'
+podInstallInExampleFolder() {
+    sh -c 'cd ./Example && pod install'
+}
+alias pie=podInstallInExampleFolder
+
 alias dc="cd /Users/apple/Desktop"
 alias ..='cd ..'
 alias ...='cd ../..'
