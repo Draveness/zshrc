@@ -1,4 +1,4 @@
-ZSH_THEME="blinks"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 plugins=(git)
 
 export ZSH=$HOME/.oh-my-zsh
@@ -7,6 +7,7 @@ source $ZSH/oh-my-zsh.sh
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 export EDITOR=vim
+export CLOUD="$HOME/Library/Mobile Documents/com~apple~CloudDocs/workspace"
 
 # Configure PATH
 export PATH="$PATH:/usr/local/ssl/bin"
@@ -19,6 +20,8 @@ export PATH="$PATH:./node_modules/.bin"
 export PATH="$HOME/.rvm/bin:$PATH"
 
 # Alias
+alias xc="find . -name '*.xcworkspace' -maxdepth 1 | head -n 1 | xargs open" # open first workspace in current folder
+alias xp="find . -name '*.xcworkproj'  -maxdepth 1 | head -n 1 | xargs open" # open first xcode project in current folder
 alias vz='vim ~/.zshrc'
 alias rp="postgres -D /usr/local/var/postgres"
 alias a="open -a Atom ."
