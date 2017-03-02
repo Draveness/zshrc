@@ -7,6 +7,8 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(history ip)
 #POWERLEVEL9K_TIME_BACKGROUND='white'
 plugins=(git)
 
+export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152
+
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
