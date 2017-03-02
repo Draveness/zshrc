@@ -1,4 +1,10 @@
 ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="$ "
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time dir rbenv vcs status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(history ip)
+#POWERLEVEL9K_TIME_BACKGROUND='white'
 plugins=(git)
 
 export ZSH=$HOME/.oh-my-zsh
@@ -20,8 +26,8 @@ export PATH="$PATH:./node_modules/.bin"
 export PATH="$HOME/.rvm/bin:$PATH"
 
 # Alias
-alias xc="find . -name '*.xcworkspace' -maxdepth 1 | head -n 1 | xargs open" # open first workspace in current folder
-alias xp="find . -name '*.xcworkproj'  -maxdepth 1 | head -n 1 | xargs open" # open first xcode project in current folder
+alias xc="find . -name '*.xcworkspace' -maxdepth 2 | grep -v xcodeproj | head -n 1 | xargs open" # open first workspace in current folder
+alias xp="find . -name '*.xcodeproj'  -maxdepth 1 | head -n 1 | xargs open" # open first xcode project in current folder
 alias vz='vim ~/.zshrc'
 alias rp="postgres -D /usr/local/var/postgres"
 alias a="open -a Atom ."
