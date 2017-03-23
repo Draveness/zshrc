@@ -1,9 +1,10 @@
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="avit"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="$ "
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time dir rbenv vcs status)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(history ip)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 #POWERLEVEL9K_TIME_BACKGROUND='white'
 plugins=(git)
 
@@ -71,6 +72,7 @@ alias gf='git fetch'
 alias gm='git merge'
 alias gcid="git log | head -1 | awk '{print substr(\$2,1,7)}' | pbcopy"
 alias gc="git clone"
+alias gk="git checkout"
 
 alias pi='pod install'
 alias pu='pod update'
@@ -134,3 +136,5 @@ eval $(/usr/libexec/path_helper -s)
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
